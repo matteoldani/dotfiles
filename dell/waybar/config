@@ -1,0 +1,70 @@
+{
+	"layer": "top",	
+	"position": "top",
+
+
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "network#vpn", "cpu", "memory", "temperature", "pulseaudio", "battery"],
+
+
+	"sway/workspaces": {
+        "disable-scroll": true,
+        "disable-markup": true,
+        "format": "{index}" 
+    },
+
+    "clock": {
+        "format": "{:%a %b %e - %R}",
+        "interval": 30
+    },
+
+    
+    "battery": {
+        "bat": "BAT0",
+        "format": "BAT: {capacity}%  ",
+        "interval": 30
+    },
+
+
+    "network": {
+        "interface": "wlp2s0", 
+        "format-wifi": "WiFi: {essid} ({signalStrength}%)",
+        "format-disconnected": "WiFi Disconnected",
+        "interval": 60,
+        "on-click": "nm-connection-editor"
+    },
+
+    "network#vpn": {
+        "interface": "cscotun0",
+        "format": "VPN: ON",
+        "format-disconnected": "VPN: OFF",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "/opt/cisco/anyconnect/bin/vpnui"
+    },
+
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "RAM: {}%",
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G used"
+    },
+
+    "temperature": {
+	   	"thermal-zone": 10,
+		"format": "TEMP: {temperatureC}°C   ",
+		"interval": 15
+    },
+
+    "pulseaudio": {
+        "format": "VOL: {volume}%",
+        "format-bluetooth": "VOL: {volume}%   ",
+        "format-muted":"VOL: Mute",
+        "interval": 60,
+
+        "disable-scroll": true
+    }
+}
