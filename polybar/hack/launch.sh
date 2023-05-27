@@ -12,3 +12,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch the bar
 polybar -q top -c "$DIR"/config.ini &
+# Launch the bar
+polybar -q top-external -c "$DIR"/config.ini &
